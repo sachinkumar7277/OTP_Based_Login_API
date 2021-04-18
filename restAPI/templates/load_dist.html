@@ -1,0 +1,4 @@
+<option value="">---select districts---</option>
+{% for course in dists %}
+<option value="{{ course.pk }}">{{ course.name }}</option>
+{% endfor %}

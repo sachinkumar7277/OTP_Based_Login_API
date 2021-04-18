@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+    <title>Demo Registration</title>
+</head>
+<body>
+
+    <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+              <div class="card">
+                <div class="card-header text-black">
+                  <h2>Registeration</h2>
+                </div>
+                <div class="card-body">
+                    <form action="/register/" method="POST" >
+                        {% csrf_token %}
+                         <div class="form-group">
+                             {% for message in messages %}
+                                <h1>{{message}}</h1>
+                             {% endfor %}
+                             <label for="Username">Enter Username *</label>
+                             <input type="text" name = "Username" class="form-control" id="Username" placeholder="Enter  Username"  required="">
+                             <label for="email">Email address:</label>
+                             <input type="email" name="email" class="form-control" placeholder="Enter email" id="email" autocomplete="off">
+                             <label for="Password">Enter Password *</label>
+                             <input type="text" name = "Password" class="form-control" id="Password" placeholder="Enter Password"  required="">
+                             <label for="Password">Confirm Password *</label>
+                             <input type="text" name = "Confirm Password" class="form-control" id="ConfirmPassword" placeholder="Confirm Password"  required="">
+                             <label for="phone">Phone no *</label>
+                             <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter 10 digit phone no" required=""><br><br>
+                             <input type="submit" value="send OTP"  class="btn btn-block btn-primary"><br><br>
+
+                             <a class="btn btn-danger" href="/accounts/password/reset">Reset password</a>
+                         </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+      </section>
+
+</body>
+</html>
